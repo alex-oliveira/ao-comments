@@ -1,0 +1,25 @@
+{
+  "license": "MIT",
+  "type": "package",
+  "name": "alex-oliveira/ao-comments",
+  "homepage": "https://bitbucket.org/alex-oliveira/ao-comments",
+  "description": "Resources for Comments with Laravel.",
+  "keywords": ["alex-oliveira", "laravel", "comments"],
+  "authors": [
+    {
+      "name": "Alex Oliveira",
+      "homepage": "https://github.com/alex-oliveira",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "AoComments\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=5.5.9",
+    "laravel/framework": "5.*",
+    "alex-oliveira/ao-scrud": "dev-master"
+  }
+}
