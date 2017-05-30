@@ -37,6 +37,7 @@ return [
 ### 4) Publish migrations
 ````
 $ php artisan vendor:publish
+$ composer dump
 ````
 
 
@@ -111,7 +112,7 @@ class Post extends Model
 ````
 the same that
 ````
-return $this->belongsToMany(Comment::class, 'ao_comments_x_post');
+return $this->belongsToMany(Comment::class, 'ao_comments_x_posts');
 ````
 
 
