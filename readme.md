@@ -84,3 +84,67 @@ public function down()
     Schema::dropIfExists('ao_comments_x_posts');
 }
 ````
+
+
+
+
+
+## Model
+````
+namespace App\Models;
+
+use AoComments\Models\Comment;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+
+    /**
+     * @return Comment[]|\Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function comments()
+    {
+        return $this->belongsToMany(Comment::class, AoComments()->schema()->table($this->getTable()));
+    }
+    
+}
+````
+the same that
+````
+return $this->belongsToMany(Comment::class, 'ao_comments_x_post');
+````
+
+
+
+
+
+## Controller
+````
+namespace App\Http\Controllers\Posts;
+
+use AoComments\Controllers\AoCommentsController;
+use App\Models\Post;
+
+class CommentsController extends AoCommentsController
+{
+
+    protected $dynamicClass = Post::class;
+    
+}
+````
+
+
+
+
+
+## Routes
+````
+Route::group(['prefix' => 'posts', 'as' => 'posts.'], function () {
+
+    AoComments()->router()->controller('Posts\CommentsController')->foreign('post_id')->make();
+    .
+    .
+    .
+    
+});
+````
