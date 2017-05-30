@@ -2,7 +2,7 @@
   "license": "MIT",
   "type": "package",
   "name": "alex-oliveira/ao-comments",
-  "homepage": "https://bitbucket.org/alex-oliveira/ao-comments",
+  "homepage": "https://github.com/alex-oliveira/ao-comments",
   "description": "Resources for Comments with Laravel.",
   "keywords": ["alex-oliveira", "laravel", "comments"],
   "authors": [
