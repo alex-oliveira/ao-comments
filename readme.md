@@ -149,3 +149,8 @@ Route::group(['prefix' => 'posts', 'as' => 'posts.'], function () {
     
 });
 ````
+
+### Checking routes
+````
+$ php artisan route:list
+````
