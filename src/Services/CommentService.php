@@ -112,15 +112,11 @@ class CommentService extends ScrudService
             ->columns(['user_id', 'message'])
             ->rules([
                 'message' => 'required',
-                //'user_id' => 'required|integer|exists:' . config('ao.tables.users') . ',id'
 
             ])->onPrepare(function ($config) {
-                //$this->temp = $config->data()->get('user_id', false);
-                //$config->data()->put('user_id', Auth()->id());
-
-            })->onPrepareEnd(function ($config) {
                 $this->setOwner($config);
 
+            })->onPrepareEnd(function ($config) {
                 $this->temp = $config->data()->get('user_id', false);
                 $config->data()->put('user_id', Auth()->id());
 
@@ -138,7 +134,6 @@ class CommentService extends ScrudService
             ->columns(['message'])
             ->rules([
                 'message' => 'required',
-                'user_id' => 'sometimes|nullable|integer|exists:' . config('ao.tables.users') . ',id'
             ])
             ->onPrepare(function ($config) {
                 $this->applyDynamicFilter($config);
@@ -160,8 +155,8 @@ class CommentService extends ScrudService
                     abort(412, 'Você não pode excluir esse comentário');
 
             })->onExecute(function ($config) {
-                $this->setOwner($config);
-                $this->owner->comments()->detach($config->data()->get('id'));
+                //$this->setOwner($config);
+                //$this->owner->comments()->detach($config->data()->get('id'));
             });
 
         // RESTORE //---------------------------------------------------------------------------------------------------

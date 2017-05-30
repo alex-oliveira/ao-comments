@@ -26,10 +26,10 @@ class Schema
             $t->$type($fk)->unsigned();
             $t->foreign($fk, 'fk_' . $table . '_x_ao_comments')->references('id')->on($table);
 
-            $t->bigInteger('log_id')->unsigned();
-            $t->foreign('log_id', 'fk_ao_comments_x_' . $table)->references('id')->on('ao_comments_comments');
+            $t->bigInteger('comment_id')->unsigned();
+            $t->foreign('comment_id', 'fk_ao_comments_x_' . $table)->references('id')->on('ao_comments_comments');
 
-            $t->primary([$fk, 'log_id'], 'pk_ao_comments_x_' . $table);
+            $t->primary([$fk, 'comment_id'], 'pk_ao_comments_x_' . $table);
         });
     }
 
